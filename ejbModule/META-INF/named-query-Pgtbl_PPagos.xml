@@ -1,0 +1,65 @@
+<entity-mappings version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<!--Pgtbl_PPagos-->
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.listAll">
+		<query>
+			<![CDATA[from Pgtbl_ppagos domain where domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.listAllPk">
+		<query>
+			<![CDATA[select domain.iPPago_id from Pgtbl_ppagos domain where domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.countTotalRecords">
+		<query>
+            <![CDATA[select count(*) from Pgtbl_ppagos domain where domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+        </query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.getConcurrencyById">
+		<query>
+			<![CDATA[select domain.iConcurrencia_id from Pgtbl_ppagos domain where domain.iPPago_id=?1]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.updateByQuery">
+		<query>
+			<![CDATA[update Pgtbl_ppagos set
+			sCreated_by=?2,
+ 			iConcurrencia_id=?3,
+	sPPago_desc=?4,
+	iCuotas_num=?5,
+	iPeriodicidad_num=?6,
+	iTolerancia_num=?7,
+	iVencido_num=?8
+			where iPPago_id=?1]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.deleteLogicalByQuery">
+		<query>
+			<![CDATA[update Pgtbl_ppagos set iEliminado_fl=?2, sCreated_by=?3, iConcurrencia_id=?4 where iPPago_id=?1]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.getById">
+		<query>
+			<![CDATA[from Pgtbl_ppagos domain where domain.iPPago_id=?1]]>
+		</query>
+	</named-query>
+	<!--Master Detail-->
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.listAllMD">
+		<query>
+			<![CDATA[from Pgtbl_ppagos domain where domain.iPPago_id=?3 and domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.listAllPkMD">
+		<query>
+			<![CDATA[select domain.iPPago_id from Pgtbl_ppagos domain where domain.iPPago_id=?3 and domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosDaoImpl.countTotalRecordsMD">
+		<query>
+            <![CDATA[select count(*) from Pgtbl_ppagos domain where domain.iPPago_id=?3 and domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+        </query>
+	</named-query>
+	<!--end of Pgtbl_PPagos -->
+</entity-mappings>

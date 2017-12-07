@@ -1,0 +1,62 @@
+<entity-mappings version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<!--Pgtbl_PPagosxU-->
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.listAll">
+		<query>
+			<![CDATA[from Pgtbl_ppagosxu domain where domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.listAllPk">
+		<query>
+			<![CDATA[select domain.lPPagoxU_id from Pgtbl_ppagosxu domain where domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.countTotalRecords">
+		<query>
+            <![CDATA[select count(*) from Pgtbl_ppagosxu domain where domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+        </query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.getConcurrencyById">
+		<query>
+			<![CDATA[select domain.iConcurrencia_id from Pgtbl_ppagosxu domain where domain.lPPagoxU_id=?1]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.updateByQuery">
+		<query>
+			<![CDATA[update Pgtbl_ppagosxu set
+			sCreated_by=?2,
+ 			iConcurrencia_id=?3,
+	lUsuario_id=?4,
+	iPPago_id=?5
+			where lPPagoxU_id=?1]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.deleteLogicalByQuery">
+		<query>
+			<![CDATA[update Pgtbl_ppagosxu set iEliminado_fl=?2, sCreated_by=?3, iConcurrencia_id=?4 where lPPagoxU_id=?1]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.getById">
+		<query>
+			<![CDATA[from Pgtbl_ppagosxu domain where domain.lPPagoxU_id=?1]]>
+		</query>
+	</named-query>
+	<!--Master Detail-->
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.listAllMD">
+		<query>
+			<![CDATA[from Pgtbl_ppagosxu domain where domain.iPPago_id=?3 and domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.listAllPkMD">
+		<query>
+			<![CDATA[select domain.lPPagoxU_id from Pgtbl_ppagosxu domain where domain.iPPago_id=?3 and domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Pgtbl_PPagosxUDaoImpl.countTotalRecordsMD">
+		<query>
+            <![CDATA[select count(*) from Pgtbl_ppagosxu domain where domain.iPPago_id=?3 and domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+        </query>
+	</named-query>
+	<!--end of Pgtbl_PPagosxU -->
+</entity-mappings>

@@ -1,0 +1,134 @@
+<entity-mappings version="1.0" xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+>
+	<!--Petbl_Personas -->
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPJWithName">
+		<query>
+			<![CDATA[
+				select
+					p.lPersona_id,
+					pj.sPersona_rs
+				from
+					Petbl_Persona p,
+					Petbl_PJuridicas pj
+				where
+						p.lPersona_id = pj.lPJuridica_id
+					and pj.iEliminado_fl=?1
+					and pj.iEstado_fl in (?2)
+				]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPF1WithName">
+		<query>
+		select
+		p.lPersona_id,
+		concat(concat(concat(concat(pf.sPersona_app,' '),pf.sPersona_apm),' '),pf.sPersona_nm) as nombre
+		from
+		Petbl_Persona p,
+		Petbl_PFisicas pf
+		where
+		p.lPersona_id = pf.lPFisica_id
+		and pf.iEliminado_fl=?1
+		and pf.iEstado_fl in (?2)
+		and pf.sPersona_apm is not null
+		and pf.sPersona_nm is not null
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPF2WithName">
+		<query>
+		select
+		p.lPersona_id,
+		pf.sPersona_app
+		from
+		Petbl_Persona p,
+		Petbl_PFisicas pf
+		where
+		p.lPersona_id = pf.lPFisica_id
+		and pf.iEliminado_fl=?1
+		and pf.iEstado_fl in (?2)
+		and pf.sPersona_apm is null
+		and pf.sPersona_nm is not null
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPF3WithName">
+		<query>
+		select
+		p.lPersona_id,
+		concat(pf.sPersona_app,' ', pf.sPersona_apm, ' ', pf.sPersona_nm) as nombre
+		from
+		Petbl_Persona p,
+		Petbl_PFisicas pf
+		where
+		p.lPersona_id = pf.lPFisica_id
+		and pf.iEliminado_fl=?1
+		and pf.iEstado_fl in (?2)
+		and pf.sPersona_apm is null
+		and pf.sPersona_nm is null
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPJByGroupWithName">
+		<query>
+			<![CDATA[
+				select
+					p.lPersona_id,
+					pj.sPersona_rs as nombre
+				from
+					Petbl_Persona p,
+					Petbl_PJuridicas pj
+				where
+						p.lPersona_id = pj.lPJuridica_id
+					and pj.iEliminado_fl=?1
+					and pj.iEstado_fl in (?2)
+				]]>
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPF1ByGroupWithName">
+		<query>
+		select
+		p.lPersona_id,
+		concat(concat(concat(concat(pf.sPersona_app,' '),pf.sPersona_apm),' '),pf.sPersona_nm) as nombre
+		from
+		Petbl_Persona p,
+		Petbl_PFisicas pf
+		where
+		p.lPersona_id = pf.lPFisica_id
+		and pf.iEliminado_fl=?1
+		and pf.iEstado_fl in (?2)
+		and pf.sPersona_apm is not null
+		and pf.sPersona_nm is not null
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPF2ByGroupWithName">
+		<query>
+		select
+		p.lPersona_id,
+		pf.sPersona_app as nombre
+		from
+		Petbl_Persona p,
+		Petbl_PFisicas pf
+		where
+		p.lPersona_id = pf.lPFisica_id
+		and pf.iEliminado_fl=?1
+		and pf.iEstado_fl in (?2)
+		and pf.sPersona_apm is null
+		and pf.sPersona_nm is not null
+		</query>
+	</named-query>
+	<named-query name="com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPF3ByGroupWithName">
+		<query>
+		select
+		p.lPersona_id,
+		concat(pf.sPersona_app,' ', pf.sPersona_apm, ' ', pf.sPersona_nm) as nombre
+		from
+		Petbl_Persona p,
+		Petbl_PFisicas pf
+		where
+		p.lPersona_id = pf.lPFisica_id
+		and pf.iEliminado_fl=?1
+		and pf.iEstado_fl in (?2)
+		and pf.sPersona_apm is null
+		and pf.sPersona_nm is null
+		</query>
+	</named-query>
+	<!--end of Petbl_Personas -->
+</entity-mappings>
