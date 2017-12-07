@@ -14,7 +14,7 @@ public class Petbl_PersonasServiceImpl implements Petbl_PersonasService {
         return dao.listAllWithName(AppBaseConstants.DELETED_VALUE_FALSE, iEstado_fl);
     }
 
-    @Override
+    
     public List<Object[]> listPetbl_PersonasByGroupWithName(int grupoId, String... iEstado_fl) {
         return dao.listPetbl_PersonasByGroupWithName(AppBaseConstants.DELETED_VALUE_FALSE, grupoId, iEstado_fl);
     }

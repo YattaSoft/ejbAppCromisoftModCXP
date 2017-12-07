@@ -20,7 +20,7 @@ public class Petbl_PersonasDaoImpl extends AbstractBaseDao implements Petbl_Pers
         return lista;
     }
 
-    @Override
+    
     public List<Object[]> listPetbl_PersonasByGroupWithName(String iEliminado_fl, int grupoId, String... iEstado_fl) {
 		/*List<Object[]> lista = ListUtils.union(super.verifyListNamedQueryAll("com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPJByGroupWithName", iEliminado_fl,
                 Arrays.asList(iEstado_fl), grupoId), ListUtils.union(super.verifyListNamedQueryAll("com.ejbappcromisoft.cxp.dao.impls.Petbl_PersonasDaoImpl.listAllPF1ByGroupWithName", iEliminado_fl,
